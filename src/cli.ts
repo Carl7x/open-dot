@@ -12,7 +12,7 @@ async function main(): Promise<void> {
     console.log('请在弹出的浏览器中登录 dots.ai。登录态保存在本项目的 .browser_data/。');
     const deadline = Date.now() + 300_000;
     while (Date.now() < deadline) {
-      if (await browser.isLoggedIn()) {
+      if (await browser.isLoggedIn(0)) {
         console.log('已检测到登录。');
         return;
       }
@@ -37,6 +37,13 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (command === 'doctor') {
+    await browser.start(process.env.HEADLESS !== '0');
+    const loggedIn = await browser.isLoggedIn();
+    console.log(JSON.stringify({ loggedIn, ...await browser.diagnosticState() }, null, 2));
+    return;
+  }
+
   if (command === 'serve') {
     await browser.start(process.env.HEADLESS !== '0');
     if (!await browser.isLoggedIn()) throw new Error('尚未登录；先运行 npm run login');
@@ -53,7 +60,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  console.log('用法: open-dot login | ask "问题" [--new] [--json] | serve');
+  console.log('用法: open-dot login | doctor | ask "问题" [--new] [--json] | serve');
   process.exitCode = 2;
 }
 

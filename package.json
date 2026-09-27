@@ -10,6 +10,7 @@
     "check": "tsc --noEmit -p tsconfig.json",
     "test": "npm run build && node dist/server.test.js",
     "login": "npm run build && node dist/cli.js login",
+    "doctor": "npm run build && node dist/cli.js doctor",
     "ask": "npm run build && node dist/cli.js ask",
     "start": "node dist/cli.js serve"
   },

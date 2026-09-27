@@ -15,6 +15,8 @@ open-dot login
 
 `login` 会打开独立的 Chrome 窗口，请在其中自行登录 dots.ai。登录资料保存在项目目录的 `.browser_data/`，已经加入 `.gitignore`；不要将这个目录、Cookie 或令牌上传到 GitHub。
 
+登录后可运行 `npm run doctor` 检查登录态和页面输入框。该命令只输出令牌、Cookie 是否存在，不输出其内容。
+
 ## Ask
 
 ```powershell
@@ -43,4 +45,4 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/v1/chat/completions `
 
 ## 限制
 
-此工具依赖 dots.ai 当前网页结构，页面更新后可能需要调整选择器。完整端到端调用须在已登录的账号上验证。请遵守 dots.ai 和相关平台的使用规则。
+此工具依赖 dots.ai 当前网页结构，页面更新后可能需要调整选择器。已在登录账号上验证 `doctor` 和 `ask --new` 能取得回答；不同问题的来源链接和图片仍取决于点点 AI 实际展示的内容。请遵守 dots.ai 和相关平台的使用规则。
