@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.browser_data/
+.playwright-browsers/
+.env
+.env.*
+!.env.example
+*.log
