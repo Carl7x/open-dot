@@ -1,20 +1,19 @@
 # open-dot
 
-用 TypeScript 调用 [dots.ai](https://dots.ai/chat/home/new) 的本地命令行工具。参考 [Wing900/dots2api](https://github.com/Wing900/dots2api) 的 Playwright 持久浏览器方案，把常用操作收敛成 `open-dot ask`。它访问的是 **dots.ai** 网页，不是小红书的 `xiaohongshu.com/ai_chat`。
+用 TypeScript 调用 [dots.ai](https://dots.ai/chat/home/new) 的本地命令行工具，把常用操作收敛成 `open-dot ask`。它访问的是 **dots.ai** 网页。
 
 ## 安装与登录
 
-需要 Node.js 20+。在项目目录执行：
+需要 Node.js 20+ 和本机 Chrome。在项目目录执行：
 
 ```powershell
 npm install
-npx playwright install chromium
 npm run build
 npm link
 open-dot login
 ```
 
-`login` 会打开独立的 Chromium 窗口，请在其中自行登录 dots.ai。登录资料保存在项目目录的 `.browser_data/`，已经加入 `.gitignore`；不要将这个目录、Cookie 或令牌上传到 GitHub。
+`login` 会打开独立的 Chrome 窗口，请在其中自行登录 dots.ai。登录资料保存在项目目录的 `.browser_data/`，已经加入 `.gitignore`；不要将这个目录、Cookie 或令牌上传到 GitHub。
 
 ## Ask
 

@@ -10,6 +10,7 @@ export class DotsBrowser {
 
   async start(headless: boolean): Promise<Page> {
     this.context = await chromium.launchPersistentContext(profilePath, {
+      channel: 'chrome',
       headless,
       viewport: { width: 1280, height: 900 },
     });
